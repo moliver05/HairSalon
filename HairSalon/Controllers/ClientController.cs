@@ -10,7 +10,7 @@ namespace HairSalon.Controllers
     public ActionResult Create(string clientName, int employeeId)
     {
       new Client(clientName, employeeId).Save();
-      Stylist foundEmployee = Employee.Find(employeeId);
+      Employee foundEmployee = Employee.Find(employeeId);
       return View("Employee/Details", foundEmployee);
     }
   }
