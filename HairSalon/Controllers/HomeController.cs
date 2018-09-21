@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using HairSalon.Models;
+
 
 namespace HairSalon.Controllers
 {
@@ -8,7 +11,7 @@ namespace HairSalon.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            return View();
+            return View(Stylist.GetAll());
         }
     }
 }

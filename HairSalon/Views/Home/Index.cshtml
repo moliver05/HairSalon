@@ -1,20 +1,21 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using HairSalon.Models;
-
-namespace HairSalon.Controllers
-{
-public class HairSalonController : Controller
-{
-  [HttpGet]("/stylist")
-  public ActionResult Index()
-  {
-    return View();
-  }
-
-  [HttpGet]("/stylist")
-  public ActionResult CreateForm()
-  {
-
-  }
+<div class="container">
+  <div class="col-md-4">
+    <form action="/employee/new" method="post">
+      <h3>Add a New Stylist</h3>
+      <div class="form-group">
+        <label for="employeeName">Name</label>
+        <input class="form-control" name="employeeName" type="text" placeholder="First Last">
+      </div>
+      <button type="submit" class="btn btn-info">Add</button>
+    </form>
+  </div>
+  <div class="col-md-8" id="content">
+    <h1>Stylists</h1>
+    <hr />
+    @foreach (var item in Model)
+    {
+      <h3><a href="/employee/@item.GetEmployeeId()">@item.GetStylistName()
+      </a></h3>  <h5><a href="/employee/@item.GetEmployeeId()/delete">Delete</a></h5>
+    }
+  </div>
+</div>

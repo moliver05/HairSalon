@@ -4,14 +4,14 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-    public class ClientController : Controller
+  public class ClientController : Controller
+  {
+    [HttpPost("/client/new")]
+    public ActionResult Create(string clientName, int employeeId)
     {
-        [HttpPost("/client/new")]
-        public ActionResult Create(string clientName, int stylistId)
-        {
-            new Client(clientName, stylistId).Save();
-            Stylist foundStylist = Stylist.Find(stylistId);
-            return View("Stylist/Details", foundStylist);
-        }
+      new Client(clientName, employeeId).Save();
+      Stylist foundEmployee = Employee.Find(employeeId);
+      return View("Employee/Details", foundEmployee);
     }
+  }
 }
