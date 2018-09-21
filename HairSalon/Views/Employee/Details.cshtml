@@ -1,4 +1,37 @@
-<h1>@Model.GetEmployee()</h1>
-
-<a href='/employee/new'>Add another item</a>
-<a href='/employee'>View all items</a>
+<div class="row">
+  <div class="col-md-4" id="sidebar">
+    <form action="/stylist/new" method="post">
+      <h3>Add a New Stylist</h3>
+      <div class="form-group">
+        <label for="stylistName">Name</label>
+        <input class="form-control" name="stylistName" type="text" placeholder="First Last">
+      </div>
+      <button type="submit" class="btn btn-info">Add</button>
+    </form>
+    <hr />
+  </div>
+  <div class="col-md-8" id="content">
+    <h1><a href="/">Stylists</a></h1>
+    <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4" id="sidebar">
+    <form action="/stylist/@Model.GetStylistId()/newClient" method="post">
+      <h3>Add a New Client</h3>
+      <div class="form-group">
+        <label for="clientName">Name</label>
+        <input class="form-control" name="clientName" type="text" placeholder="First Last">
+      </div>
+      <button type="submit" class="btn btn-info">Add</button>
+    </form>
+  </div>
+  <div class="col-md-8" id="content">
+    <h3>@Model.GetStylistName()</h3>
+    <hr />
+    @foreach (var item in Model.GetClients())
+    {
+      <h4>@item.GetClientName()</h4>
+    }
+  </div>
+</div>
