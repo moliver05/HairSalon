@@ -110,9 +110,9 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM employees WHERE employee_id = @employeeId;";
+      cmd.CommandText = @"SELECT * FROM employees WHERE employee_Id = @employeeId;";
 
-      cmd.Parameters.Add(new MySqlParameter("@employeeId", employeeId));
+      cmd.Parameters.Add(new MySqlParameter("@employeeId", _employeeId));
 
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       int id = 0;
@@ -139,7 +139,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM clients WHERE employee_id = @employeeId;";
+      cmd.CommandText = @"SELECT * FROM clients WHERE employee_Id = @employeeId;";
 
       cmd.Parameters.Add(new MySqlParameter("@employeeId", _employeeId));
 
@@ -167,8 +167,8 @@ namespace HairSalon.Models
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"
-      DELETE FROM employees WHERE employee_id = @employeeId;
-      DELETE FROM clients WHERE employee_id = @employeeId;";
+      DELETE FROM employees WHERE employee_Id = @employeeId;
+      DELETE FROM clients WHERE employee_Id = @employeeId;";
 
       cmd.Parameters.Add(new MySqlParameter("@employeeId", _employeeId));
 
