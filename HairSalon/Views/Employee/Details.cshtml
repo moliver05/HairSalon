@@ -1,6 +1,5 @@
-{
-  @_Layout
-}
+@Layout
+<div class="row">
 <div class="w3-container w3-red">
   <form action="/employee/new" method="post">
     <h3>New Employee</h3>
@@ -11,18 +10,18 @@
     <button type="submit" class="btn btn-info">Add</button>
   </form>
 </div>
-
-  <!--  -->
+</div>
 <hr>
+<!--  -->
+<div class="row">
 <div class="w3-container w3-blue">
   <h1><a href="/">Employees</a></h1>
   <hr />
 </div>
-</div>
 <div class="container">
   <div class="col-md-6">
     <form action="/employee/@Model.GetEmployeeId()/newClient" method="post">
-      <h3>Add a New Client</h3>
+      <h3>New Client</h3>
       <div class="form-group">
         <label for="clientName">Name</label>
         <input class="form-control" name="clientName" type="text" placeholder="First Last">
@@ -30,8 +29,10 @@
       <button type="submit" class="btn btn-info">Add</button>
     </form>
   </div>
-
+</div>
+</div>
 <hr>
+<!--  -->
   <div class="w3-container w3-green">
     <h3>@Model.GetEmployeeName()</h3>
     <hr />

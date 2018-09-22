@@ -112,7 +112,7 @@ namespace HairSalon.Models
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"SELECT * FROM employees WHERE employee_Id = @employeeId;";
 
-      cmd.Parameters.Add(new MySqlParameter("@employeeId", _employeeId));
+      cmd.Parameters.Add(new MySqlParameter("@employeeId", employeeId));
 
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       int id = 0;
