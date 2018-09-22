@@ -1,17 +1,23 @@
+{
+  @_Layout
+}
+
 <div class="container">
-  <div class="col-md-4">
+<hr>
     <form action="/employee/new" method="post">
-      <h3>Add a New Stylist</h3>
+      <h3>New Stylist</h3>
       <div class="form-group">
         <label for="employeeName">Name</label>
-        <input class="form-control" name="employeeName" type="text" placeholder="First Last">
+        <input class="form-control" name="employeeName" type="text" placeholder="First, Last">
       </div>
       <button type="submit" class="btn btn-info">Add</button>
     </form>
-  </div>
-  <div class="col-md-8" id="content">
+</div>
+
+<hr>
+
     <h1>Stylists</h1>
-    <hr />
+<hr>
     @foreach (var item in Model)
     {
       <h3><a href="/employee/@item.GetEmployeeId()">@item.GetEmployeeName()

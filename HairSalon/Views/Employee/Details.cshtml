@@ -1,19 +1,23 @@
-<div class="container">
-  <div class="col-md-6">
-    <form action="/employee/new" method="post">
-      <h3>Add a New Employee</h3>
-      <div class="form-group">
-        <label for="employeeName">Name</label>
-        <input class="form-control" name="employeeName" type="text" placeholder="First Last">
-      </div>
-      <button type="submit" class="btn btn-info">Add</button>
-    </form>
-    <hr />
-  </div>
-  <div class="col-md-8" id="content">
-    <h1><a href="/">Employees</a></h1>
-    <hr />
-  </div>
+{
+  @_Layout
+}
+<div class="w3-container w3-red">
+  <form action="/employee/new" method="post">
+    <h3>New Employee</h3>
+    <div class="form-group">
+      <label for="employeeName">Name</label>
+      <input class="form-control" name="employeeName" type="text" placeholder="First Last">
+    </div>
+    <button type="submit" class="btn btn-info">Add</button>
+  </form>
+</div>
+
+  <!--  -->
+<hr>
+<div class="w3-container w3-blue">
+  <h1><a href="/">Employees</a></h1>
+  <hr />
+</div>
 </div>
 <div class="container">
   <div class="col-md-6">
@@ -26,7 +30,9 @@
       <button type="submit" class="btn btn-info">Add</button>
     </form>
   </div>
-  <div class="col-md-6" id="content">
+
+<hr>
+  <div class="w3-container w3-green">
     <h3>@Model.GetEmployeeName()</h3>
     <hr />
     @foreach (var item in Model.GetClients())
