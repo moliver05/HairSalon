@@ -1,7 +1,9 @@
-@Layout
-
+@{
+Layout = "_Layout";
+}
 <div class="container">
-<hr>
+<div class="row">
+  <div class="w3-bar w3-black">
     <form action="/employee/new" method="post">
       <h3>New Stylist</h3>
       <div class="form-group">
@@ -10,10 +12,13 @@
       </div>
       <button type="submit" class="btn btn-info">Add</button>
     </form>
+  </div>
+</div>
 </div>
 
 <hr>
-
+<div class="w3 bar w3-red">
+<div class="row">
     <h1>Stylists</h1>
 <hr>
     @foreach (var item in Model)
@@ -22,4 +27,5 @@
       </a></h3>  <h5><a href="/employee/@item.GetEmployeeId()/delete">Delete</a></h5>
     }
   </div>
+</div>
 </div>
