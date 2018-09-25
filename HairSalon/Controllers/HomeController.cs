@@ -11,7 +11,7 @@ namespace HairSalon.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View(Employee.GetAll());
+      return View();
     }
 
   }

@@ -6,47 +6,49 @@ namespace HairSalon.Controllers
 {
   public class EmployeeController : Controller
   {
-    [HttpGet("/employee")]
+    [HttpGet("/employees")]
     public ActionResult Index()
     {
-      return View();
+      List<Employee> allEmployee = Employee.GetAll();
+      return View(allEmployee);
     }
 
-    [HttpGet("/employee/new")]
+    [HttpGet("/employees/new")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    [HttpPost("/employee")]
-    public ActionResult Create()
-    {
-      List<Employee> allEmployee = Employee.GetAll();
-      return View("Index");
-    }
+    // [HttpGet("/employees")]
+    // public ActionResult Create(string employeeName, int employeeId)
+    // {
+    //   Employee newEmployee = Employee(employeeName, employeeId);
+    //   newEmployee.Save();
+    //   return RedirectToAction("Index");
+    // }
 
-    [HttpPost("/employee/{employeeId}")]
+    [HttpPost("/employees/{employeeId}")]
     public ActionResult Create()
     {
       List<Employee> allEmployee = Employee.GetAll();
       return View(allEmployee);
     }
 
-    [HttpPost("/employee/{employeeId}/newClient")]
+    [HttpPost("/employees/{employeeId}/newClient")]
     public ActionResult CreateClient(string clientName, int employeeId)
     {
       new Client(clientName, employeeId).Save();
       return View("Details", Employee.Find(employeeId));
     }
 
-    // [HttpGet("/employee/{employeeId}/delete")]
-    // public ActionResult DeleteEmployee(int employeeId)
-    // {
-    //   Employee foundEmployee = Employee.Find(employeeId);
-    //   foundEmployee.Delete();
-    //   return View("Index");
-    // }
-    //
+    [HttpGet("/employees/{employeeId}/delete")]
+    public ActionResult DeleteEmployee(int employeeId)
+    {
+      Employee foundEmployee = Employee.Find(employeeId);
+      foundEmployee.Delete();
+      return View("Index");
+    }
+
     [HttpPost("/employees/delete")]
         public ActionResult DeleteAll()
         {

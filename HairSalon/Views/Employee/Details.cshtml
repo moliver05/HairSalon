@@ -9,14 +9,10 @@
   </ul>
 }
   <br>
-
-    <a href='/<h1>@Model.GetEmployeeName()'></a>
-      <hr>
-
       <div class="container">
         <div class="col-md-6">
-          <form action="/employee/@Model.GetEmployeeId()/newClient" method="post">
-            <h3>New Client</h3>
+          <form action="/employees/@Model.GetEmployeeId()/newClient" method="post">
+            <h3>Add A New Client</h3>
             <div class="form-group">
               <label for="clientName">Name</label>
               <input class="form-control" name="clientName" type="text" placeholder="First Last">
@@ -25,6 +21,3 @@
           </form>
         </div>
       </div>
-    </div>
-
-    <hr>
