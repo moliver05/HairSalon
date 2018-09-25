@@ -5,13 +5,20 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-    public class HomeController : Controller
-    {
+  public class HomeController : Controller
+  {
 
-        [HttpGet("/")]
-        public ActionResult Index()
-        {
-            return View(Employee.GetAll());
-        }
+    [HttpGet("/")]
+    public ActionResult Index()
+    {
+      return View(Employee.GetAll());
     }
+
+    [Produces("text/html")]
+    [Route("/favorite_photos")]
+    public ActionResult FavoritePhotos()
+    {
+      return View();
+    }
+  }
 }

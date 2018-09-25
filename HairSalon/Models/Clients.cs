@@ -50,10 +50,11 @@ namespace HairSalon.Models
 
     public override int GetHashCode()
     {
-      return this.GetClientName().GetHashCode();
+      string AllHash = this.GetClientName() + this.GetHashCode();
+      return AllHash.GetHashCode();
     }
 
-    public static void ClearAll()
+    public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();

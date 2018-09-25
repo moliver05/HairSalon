@@ -26,12 +26,20 @@ namespace HairSalon.Controllers
       return View("Details", Employee.Find(employeeId));
     }
 
-    [HttpGet("/employee/{employeeId}/delete")]
-    public ActionResult DeleteEmployee(int employeeId)
-    {
-      Employee foundEmployee = Employee.Find(employeeId);
-      foundEmployee.Delete();
-      return RedirectToAction("Index", "Home");
-    }
+    // [HttpGet("/employee/{employeeId}/delete")]
+    // public ActionResult DeleteEmployee(int employeeId)
+    // {
+    //   Employee foundEmployee = Employee.Find(employeeId);
+    //   foundEmployee.Delete();
+    //   return RedirectToAction("Index", "Home");
+    // }
+
+    [HttpPost("/employees/delete")]
+        public ActionResult DeleteAll()
+        {
+            Item.DeleteAll();
+            return View();
+        }
+
   }
 }

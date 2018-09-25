@@ -1,25 +1,29 @@
 @{
 Layout = "_Layout";
 }
+<br>
+<hr>
 <div class="container">
 <div class="row">
-  <div class="w3-bar w3-black">
+  <div class="w3-yellow"><h3>New Stylist</h3>
+  </div>
+  <hr>
     <form action="/employee/new" method="post">
-      <h3>New Stylist</h3>
       <div class="form-group">
         <label for="employeeName">Name</label>
         <input class="form-control" name="employeeName" type="text" placeholder="First, Last">
       </div>
-      <button type="submit" class="btn btn-info">Add</button>
+      <button type="submit" class="btn btn-success">Add</button>
     </form>
   </div>
-</div>
 </div>
 
 <hr>
 <div class="w3 bar w3-red">
+  <h3><i>Stylists</i></h1>
+</div>
+<div class="container">
 <div class="row">
-    <h1>Stylists</h1>
 <hr>
     @foreach (var item in Model)
     {
@@ -27,5 +31,4 @@ Layout = "_Layout";
       </a></h3>  <h5><a href="/employee/@item.GetEmployeeId()/delete">Delete</a></h5>
     }
   </div>
-</div>
 </div>
