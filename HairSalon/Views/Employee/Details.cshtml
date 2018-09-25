@@ -2,10 +2,11 @@
   Layout = "_Layout";
 }
 
-@foreach (var employee in Model.GetEmployees())
+<h3>Current Clients:</h3>
+@foreach (var client in @Model["client"])
 {
   <ul>
-    <li>@Model.GetEmployeeName()</li>
+    <li>@Model.GetClientName()</li>
   </ul>
 }
   <br>

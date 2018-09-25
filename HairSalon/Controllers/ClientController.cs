@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
@@ -6,42 +7,38 @@ namespace HairSalon.Controllers
 {
   public class ClientController : Controller
   {
-    [HttpPost("/clients/new")]
-    public ActionResult Create(string clientName, int employeeId)
+    [HttpGet("/clients")]
+    public ActionResult Index()
     {
-      new Client(clientName, employeeId).Save();
-      Client foundClient = Client.Find(employeeId);
-      return View("Client/Details", foundClient);
+      List<Client> allClient = Client.GetAll();
+      return View("Index", allClient);
     }
 
+    [HttpGet("/employees/{employeeId}/clients/new")]
+    public ActionResult CreateForm(int employeeId)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Employee employee = Employee.Find(employeeId);
+      return View(employee);
+    }
 
-    // [HttpGet("/clients/{clientsId}")]
-    // public ActionResult Details(int clientsId)
-    // {
-    //   return View(Client.Find(clientsId));
-    // }ß
-    //
-    // [HttpPost("/clients/{clientsId}/newClient")]
-    // public ActionResult CreateClient(string clientName, int clientsId)
-    // {
-    //   new Client(clientName, clientsId).Save();
-    //   return View("Details", Client.Find(clientsId));
-    // }
+    [HttpGet("/employees/{employeeId}/clients/{clientId}")]
+    public ActionResult Details(int employeeId, int clientId)
+    {
+      Client client = Client.Find(clientId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Employee employee = Employee.Find(employeeId);
+      model.Add("client", client);
+      model.Add("employee", employee);
+      return View(model);
+    }
+    [HttpGet("/employees/employees/{employeeId}/delete")]
+    public ActionResult DeleteAll()
+    {
 
-    // [HttpGet("/clients/{clientsId}/delete")]
-    // public ActionResult DeleteClient(int clientsId)
-    // {
-    //   Client foundClient = Client.Find(clientsId);
-    //   foundClient.Delete();
-    //   return View();
-    // }
+      Client.DeleteAll();
+      return View();
+    }
 
-    [HttpPost("/clients/delete")]
-        public ActionResult DeleteAll()
-        {
-            Client.DeleteAll();
-            return View();
-        }
-
-  }
+ }
 }

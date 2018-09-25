@@ -1,8 +1,16 @@
 @{
-Layout = "_Layout";
+  Layout = "_Layout";
 }
+<ul>
+@foreach (var employee in Model)
+{
 
-<div class="w3-container">
-<div class="w3 bar w3-blue">
+    <li><a href="/employees/@employee.GetEmployeeId()"> @employee.GetEmployeeName()</a></li>
+}
+  </ul>
+  <br>
 
-</div>
+  <a href="/employees/new">Add New Employee</a>
+  <form action="employees/delete" method="post">
+  <button type="submit">Delete</button>
+  </form>
