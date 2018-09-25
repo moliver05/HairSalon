@@ -70,6 +70,32 @@ namespace HairSalon.Models
       }
     }
 
+    public static List<Client> GetAll()
+    {
+      List<Client> allClient = new List<Client> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM clients;";
+
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while (rdr.Read())
+      {
+        int clientid = rdr.GetInt32(0);
+        string clientname = rdr.GetString(1);
+        Client newClient = new Client(clientname, clientid);
+        allClient.Add(newClient);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allClient;
+    }
+
+
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
@@ -89,5 +115,39 @@ namespace HairSalon.Models
         conn.Dispose();
       }
     }
+
+    public static Client Find(int employeeId)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM employees WHERE client_Id = (@clientId);";
+
+      MySqlParameter searchflightId = new MySqlParameter();
+       searchflightId.ParameterName = "@searchflightId";
+       searchflightId.Value = employeeId;
+       cmd.Parameters.Add(searchflightId);
+
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int clientid = 0;
+      string clientname = "";
+
+      while (rdr.Read())
+      {
+        clientid = rdr.GetInt32(0);
+        clientname = rdr.GetString(1);
+      }
+      Client foundClient = new Client(clientname, clientid);
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return foundClient;
+    }
+
+
   }
 }

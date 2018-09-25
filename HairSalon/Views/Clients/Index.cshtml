@@ -1,0 +1,22 @@
+@{
+Layout = "_Layout";
+}
+
+<a href='/clients/@client.GetClientId()'></a>
+
+<div class="w3-container w3-green">
+  <h3>@Model.GetEmployeeName()</h3>
+  <hr>
+  @foreach (var client in Model.GetClients())
+  {
+    <ul>
+      <li>@Model.GetClientName()</li>
+    </ul>
+  }
+</div>
+<hr>
+
+<div class="container">
+<a href='/emloyees/{employeeid}/delete'>Delete Client<a>
+
+</div>

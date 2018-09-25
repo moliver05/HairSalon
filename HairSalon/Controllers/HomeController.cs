@@ -14,11 +14,5 @@ namespace HairSalon.Controllers
       return View(Employee.GetAll());
     }
 
-    [Produces("text/html")]
-    [Route("/favorite_photos")]
-    public ActionResult FavoritePhotos()
-    {
-      return View();
-    }
   }
 }

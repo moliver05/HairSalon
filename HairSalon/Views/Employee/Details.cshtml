@@ -1,50 +1,30 @@
 @{
-Layout = "_Layout";
+  Layout = "_Layout";
 }
-<div class="row">
-<div class="w3-container">
-<div class="w3-bar w3-red">
-  <form action="/employee/new" method="post">
-    <h3>New Employee</h3>
-    <div class="form-group">
-      <label for="employeeName">Name</label>
-      <input class="form-control" name="employeeName" type="text" placeholder="First Last">
-    </div>
-    <button type="submit" class="btn btn-info">Add</button>
-  </form>
-</div>
-</div>
-</div>
-<hr>
-<!--  -->
-<div class="row">
-<div class="w3-container">
-<div class="w3 bar w3-blue"
-  <h1><a href="/">Employees</a></h1>
-  <hr />
-</div>
-<div class="container">
-  <div class="col-md-6">
-    <form action="/employee/@Model.GetEmployeeId()/newClient" method="post">
-      <h3>New Client</h3>
-      <div class="form-group">
-        <label for="clientName">Name</label>
-        <input class="form-control" name="clientName" type="text" placeholder="First Last">
+
+@foreach (var employee in Model.GetEmployees())
+{
+  <ul>
+    <li>@Model.GetEmployeeName()</li>
+  </ul>
+}
+  <br>
+
+    <a href='/<h1>@Model.GetEmployeeName()'></a>
+      <hr>
+
+      <div class="container">
+        <div class="col-md-6">
+          <form action="/employee/@Model.GetEmployeeId()/newClient" method="post">
+            <h3>New Client</h3>
+            <div class="form-group">
+              <label for="clientName">Name</label>
+              <input class="form-control" name="clientName" type="text" placeholder="First Last">
+            </div>
+            <button type="submit" class="btn btn-info">Add</button>
+          </form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-info">Add</button>
-    </form>
-  </div>
-</div>
-</div>
-</div>
-<hr>
-<!--  -->
-  <div class="w3-container w3-green">
-    <h3>@Model.GetEmployeeName()</h3>
-    <hr />
-    @foreach (var item in Model.GetClients())
-    {
-      <h4>@item.GetClientName()</h4>
-    }
-  </div>
-</div>
+    </div>
+
+    <hr>

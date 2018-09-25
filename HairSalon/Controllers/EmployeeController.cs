@@ -6,17 +6,30 @@ namespace HairSalon.Controllers
 {
   public class EmployeeController : Controller
   {
-    [HttpPost("/employee/new")]
-    public ActionResult CreateEmployee(string employeeName)
+    [HttpGet("/employee")]
+    public ActionResult Index()
     {
-      new Employee(employeeName).Save();
-      return RedirectToAction("Index", "Home");
+      return View();
     }
 
-    [HttpGet("/employee/{employeeId}")]
-    public ActionResult Details(int employeeId)
+    [HttpGet("/employee/new")]
+    public ActionResult CreateForm()
     {
-      return View(Employee.Find(employeeId));
+      return View();
+    }
+
+    [HttpPost("/employee")]
+    public ActionResult Create()
+    {
+      List<Employee> allEmployee = Employee.GetAll();
+      return View("Index");
+    }
+
+    [HttpPost("/employee/{employeeId}")]
+    public ActionResult Create()
+    {
+      List<Employee> allEmployee = Employee.GetAll();
+      return View(allEmployee);
     }
 
     [HttpPost("/employee/{employeeId}/newClient")]
@@ -31,13 +44,13 @@ namespace HairSalon.Controllers
     // {
     //   Employee foundEmployee = Employee.Find(employeeId);
     //   foundEmployee.Delete();
-    //   return RedirectToAction("Index", "Home");
+    //   return View("Index");
     // }
-
+    //
     [HttpPost("/employees/delete")]
         public ActionResult DeleteAll()
         {
-            Item.DeleteAll();
+            Employee.DeleteAll();
             return View();
         }
 

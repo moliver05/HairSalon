@@ -5,12 +5,53 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="~/js/scripts.js"></script>
 </head>
 <body>
-      <div class="w3-bar w3-teal">
-        <a class="active" href="/">Home</a>
+  <div class="w3-bar w3-teal">
+    <a class="active" href="/">Home</a>
   </div>
 
-  @RenderBody()
-</body>
-</html>
+  <!-- image bg -->
+  <br>
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-white w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">Hair Salon</span></span>
+  </div>
+
+<div class="slideshow-container">
+
+  <div class="w3-container">
+    <div class="mySlides fade">
+      <img src="~/img/cover3.jpeg" style="width:80%">
+      <div class="w3-container w3-purple w3-margin-top">
+        <div class="text"><h3><i>UniSex </i></h3></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mySlides fade">
+      <img src="~/img/cover2.jpg" style="width:100%">
+      <div class="w3-container w3-red w3-margin-top">
+        <div class="text"><h3><i>Feel New</i></h3></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- functionality for pics -->
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+
+<div class="container">
+  <hr>
+    @RenderBody()
+
+  </body>
+</div>
+  </html>

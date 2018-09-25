@@ -9,10 +9,10 @@ namespace HairSalon.Models
   {
     private int _employeeId;
     private string _employeeName;
-    public Employee(string name, int id = 0)
+    public Employee(string employeeName, int employeeId = 0)
     {
-      _employeeName = name;
-      _employeeId = id;
+      _employeeName = employeeName;
+      _employeeId = employeeId;
     }
 
     public int GetEmployeeId()
