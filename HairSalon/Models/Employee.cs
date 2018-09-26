@@ -34,10 +34,11 @@ namespace HairSalon.Models
     {
       return _name;
     }
-    public void SetName(string newName)
-    {
-      _name = newName;
-    }
+    // public void SetName(string newName)
+    // {
+    //   _name = newName;
+    // }
+    
     public int GetId()
     {
       return _id;
@@ -168,5 +169,7 @@ namespace HairSalon.Models
             }
           return allEmployeeClients;
         }
+
+
   }
 }
