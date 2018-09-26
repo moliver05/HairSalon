@@ -11,14 +11,6 @@
 }
   <br>
       <div class="container">
-        <div class="col-md-6">
-          <form action="/employees/@Model.GetEmployeeId()/newClient" method="post">
-            <h3>Add A New Client</h3>
-            <div class="form-group">
-              <label for="clientName">Name</label>
-              <input class="form-control" name="clientName" type="text" placeholder="First Last">
-            </div>
-            <button type="submit" class="btn btn-info">Add</button>
-          </form>
-        </div>
+        <div class="btn btn-success"><a href="/employees/@Model["employee"].GetId()/clients/new">Add a client</a></div>
+        <div class="btn btn-success"><a href="/employees/@Model["employee"].GetId()/delete">Clear CLients</a></div>
       </div>

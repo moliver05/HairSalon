@@ -10,48 +10,59 @@
   <script src="~/js/scripts.js"></script>
 </head>
 <body>
-  <div class="w3-bar w3-teal">
+  <div class="w3-bar w3-light-grey">
     <a class="active" href="/">Home</a>
   </div>
 
   <!-- image bg -->
   <br>
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-white w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">Hair Salon</span></span>
-  </div>
-
+</div>
+<!-- start slide -->
 <div class="slideshow-container">
-
+  <!-- 1 -->
   <div class="w3-container">
     <div class="mySlides fade">
-      <img src="~/img/cover3.jpeg" style="width:80%">
-      <div class="w3-container w3-purple w3-margin-top">
-        <div class="text"><h3><i>UniSex </i></h3></div>
+      <img src="~/img/cover1.jpg" style="width:90%">
+      <hr>
+      <div class="w3-container w3-purple w3-padding large">
+        <div style="text-align:center">Welcome To</div>
       </div>
     </div>
   </div>
-
+  <!-- 2 -->
   <div class="container">
     <div class="mySlides fade">
       <img src="~/img/cover2.jpg" style="width:100%">
-      <div class="w3-container w3-red w3-margin-top">
-        <div class="text"><h3><i>Feel New</i></h3></div>
+      <hr>
+      <div class="w3-container w3-purple w3-padding large">
+        <div style="text-align:center">The Best</div>
       </div>
     </div>
-  </div>
-</div>
-
-    <!-- functionality for pics -->
-    <div style="text-align:center">
-      <span class="dot"></span>
-      <span class="dot"></span>
+    <!--3 -->
+    <div class="container">
+      <div class="mySlides fade">
+        <img src="~/img/cover3.jpeg" style="width:100%">
+        <hr>
+        <div class="w3-container w3-purple w3-padding large">
+          <div style="text-align:center">In The West</div>
+        </div>
+      </div>
     </div>
+    <!-- end slide -->
+  </div>
+
+  <!-- functionality for pics -->
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
 
 
-<div class="container">
-  <hr>
+  <div class="container">
+    <hr>
     @RenderBody()
 
   </body>
 </div>
-  </html>
+</html>

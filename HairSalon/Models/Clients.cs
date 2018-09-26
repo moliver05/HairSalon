@@ -10,15 +10,12 @@ namespace HairSalon.Models
   {
     private int _id;
     private string _name;
-    private int _stylistId;
-    public Client(string name, int stylistId, int Id = 0)
+    private int _employeeId;
+    public Client(string name, int employeeId, int Id = 0)
     {
       _id = Id;
       _name = name;
-      _stylistId = stylistId;
-
-
-
+      _employeeId = employeeId;
     }
     public string GetClientName()
     {
@@ -30,9 +27,9 @@ namespace HairSalon.Models
     {
       return _id;
     }
-    public int GetStylistId()
+    public int GetEmployeeId()
     {
-      return _stylistId;
+      return _employeeId;
     }
 
 
@@ -47,8 +44,8 @@ namespace HairSalon.Models
         Client newClient = (Client) otherClient;
         bool idEquality = (this.GetClientId() == newClient.GetClientId());
         bool nameEquality = (this.GetClientName() == newClient.GetClientName());
-        bool stylistEquality = this.GetStylistId() == newClient.GetStylistId();
-        return (idEquality && nameEquality && stylistEquality);
+        bool employeeEquality = this.GetEmployeeId() == newClient.GetEmployeeId();
+        return (idEquality && nameEquality && employeeEquality);
       }
     }
     public override int GetHashCode()
@@ -88,17 +85,17 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO clients (name, stylistId) VALUES (@ClientName, @StylistId);";
+      cmd.CommandText = @"INSERT INTO clients (name, employeeId) VALUES (@ClientName, @EmployeeId);";
 
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@ClientName";
       name.Value = this._name;
       cmd.Parameters.Add(name);
 
-      MySqlParameter stylistId = new MySqlParameter();
-      stylistId.ParameterName = "@StylistId";
-      stylistId.Value = this._stylistId;
-      cmd.Parameters.Add(stylistId);
+      MySqlParameter employeeId = new MySqlParameter();
+      employeeId.ParameterName = "@EmployeeId";
+      employeeId.Value = this._employeeId;
+      cmd.Parameters.Add(employeeId);
 
       cmd.ExecuteNonQuery();
       _id = (int) cmd.LastInsertedId;

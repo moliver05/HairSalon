@@ -6,6 +6,9 @@
     position: fixed;
 }
 
+h4 {
+  text-align: center;
+}
 /* .active {
   background-color: none;
 } */

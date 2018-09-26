@@ -24,7 +24,7 @@ public class EmployeeController : Controller
   [HttpPost("/employees")]
   public ActionResult Create()
   {
-      Employee newEmployee = new Employee(Request.Form["new-employee"]);
+      Employee newEmployee = new Employee(Request.Form["new-name"]);
       newEmployee.Save();
       List<Employee> allEmployees = Employee.GetAll();
       return RedirectToAction("Index");
@@ -57,7 +57,6 @@ public class EmployeeController : Controller
   [HttpPost("/employees/delete")]
   public ActionResult DeleteAll()
   {
-
     Employee.DeleteAll();
     return View();
   }
