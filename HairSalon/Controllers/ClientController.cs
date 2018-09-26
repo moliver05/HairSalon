@@ -32,10 +32,10 @@ namespace HairSalon.Controllers
       model.Add("employee", employee);
       return View(model);
     }
+
     [HttpGet("/employees/employees/{employeeId}/delete")]
     public ActionResult DeleteAll()
     {
-
       Client.DeleteAll();
       return View();
     }

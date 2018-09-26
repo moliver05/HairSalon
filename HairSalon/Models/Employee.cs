@@ -45,7 +45,7 @@ namespace HairSalon.Models
 
     public static List<Employee> GetAll()
     {
-      List<Employee> allEmployees = new List<Employee> {};
+      List<Employee> allEmployee = new List<Employee> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
@@ -56,7 +56,7 @@ namespace HairSalon.Models
         int employeeId = rdr.GetInt32(0);
         string employeeName = rdr.GetString(1);
         Employee newEmployee = new Employee(employeeName, employeeId);
-        allEmployees.Add(newEmployee);
+        allEmployee.Add(newEmployee);
       }
 
         conn.Close();
@@ -64,7 +64,7 @@ namespace HairSalon.Models
         {
         conn.Dispose();
         }
-      return allEmployees;
+      return allEmployee;
     }
 
     public void Save()

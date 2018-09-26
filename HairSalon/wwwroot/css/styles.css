@@ -1,17 +1,14 @@
-#summer, #fall, #winter {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
+.mySlides {
+  height: 10%;
+}
+
+body {
+  background-color: skyblue;
 }
 
 h4 {
   text-align: center;
 }
-/* .active {
-  background-color: none;
-} */
 
 /* Fading animation */
 .fade {

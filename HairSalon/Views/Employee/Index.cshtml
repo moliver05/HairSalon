@@ -4,13 +4,13 @@
 <ul>
 @foreach (var employee in Model)
 {
-
-    <li><a href="/employees/@employee.GetEmployeeId()"> @employee.GetEmployeeName()</a></li>
+    <li><a href="/employees/@employee.GetId()"> @employee.GetName()</a></li>
 }
   </ul>
   <br>
 
-  <a href="/employees/new">Add New Employee</a>
+  <div class="btn btn-info"><a href="/employees/new">Add New Employee</a></div>
+  <hr>
   <form action="employees/delete" method="post">
   <button type="submit">Delete</button>
   </form>

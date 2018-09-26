@@ -22,7 +22,6 @@ namespace HairSalon.Models
       return _name;
     }
 
-
     public int GetClientId()
     {
       return _id;
@@ -31,7 +30,6 @@ namespace HairSalon.Models
     {
       return _employeeId;
     }
-
 
     public override bool Equals(System.Object otherClient)
     {

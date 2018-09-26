@@ -5,14 +5,13 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-public class EmployeeController : Controller
-{
-
+  public class EmployeeController : Controller
+  {
   [HttpGet("/employees")]
   public ActionResult Index()
   {
-    List<Employee> allEmployees = Employee.GetAll();
-    return View(allEmployees);
+    List<Employee> allEmployee = Employee.GetAll();
+    return View(allEmployee);
   }
 
   [HttpGet("/employees/new")]
@@ -26,7 +25,7 @@ public class EmployeeController : Controller
   {
       Employee newEmployee = new Employee(Request.Form["new-name"]);
       newEmployee.Save();
-      List<Employee> allEmployees = Employee.GetAll();
+      List<Employee> allEmployee = Employee.GetAll();
       return RedirectToAction("Index");
   }
 
@@ -35,9 +34,9 @@ public class EmployeeController : Controller
   {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Employee selectedEmployee = Employee.Find(id);
-      List<Client> employeeClients = selectedEmployee.GetClients();
+      List<Client> employeeClient = selectedEmployee.GetClients();
       model.Add("employee", selectedEmployee);
-      model.Add("client", employeeClients);
+      model.Add("client", employeeClient);
       return View(model);
   }
 
@@ -48,8 +47,8 @@ public class EmployeeController : Controller
      Employee foundEmployee = Employee.Find(employeeId);
      Client newClient = new Client(Request.Form["new-client"], employeeId);
      newClient.Save();
-     List<Client> employeeClients = foundEmployee.GetClients();
-     model.Add("client", employeeClients);
+     List<Client> employeeClient = foundEmployee.GetClients();
+     model.Add("client", employeeClient);
      model.Add("employee", foundEmployee);
      return RedirectToAction("Details");
    }
@@ -57,6 +56,7 @@ public class EmployeeController : Controller
   [HttpPost("/employees/delete")]
   public ActionResult DeleteAll()
   {
+
     Employee.DeleteAll();
     return View();
   }
