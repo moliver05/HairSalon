@@ -1,0 +1,16 @@
+@{
+Layout = "_Layout";
+}
+<h2>Specialty</h2>
+<div class="container">
+<form action='/specialties/@Model["selectedSpecialty"].GetId()/employees/new' method='post'>
+  <label for='employee-id'>Select a employee</label>
+  <select id='employee-id' name='employee-id' type='text'>
+    @foreach (var employee in @Model["allEmployee"])
+    {
+      <option value='@employee.GetId()'>@employee.GetName()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+</div>
