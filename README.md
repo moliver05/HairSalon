@@ -14,6 +14,7 @@
 | **Program Gathers Name of Stylists** | Stylist 1: "Mochi" | Stylist 2: "Teo" |
 | **Program Gathers Name of Clients for each Stylists** | Client 1: "Bebot" | Client 2 : "Bebang"|
 | **Program can Add New Client for each Specific Sylist** | New Client 2: "Bruno" | New Client 2 : "Bruna"|
+| **Program can Delete the data of Stylist and its Clients** | 
 
 
 
