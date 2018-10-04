@@ -45,8 +45,8 @@ namespace HairSalon.Controllers
     public ActionResult Details(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Specialty selectedSpecialty = Specialty.Find(id);
-      List<Employee> specialtyEmployee = selectedSpecialty.GetEmployee();
+      Specialty newSpecialty = Specialty.Find(id);
+      List<Employee> specialtyEmployee = newSpecialty.GetEmployeeName();
       List<Employee> allEmployee = Employee.GetAll();
       model.Add("selectedSpecialty", selectedSpecialty);
       model.Add("specialtyEmployee", specialtyEmployee);

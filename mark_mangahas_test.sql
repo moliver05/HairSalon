@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 04, 2018 at 03:46 PM
+-- Generation Time: Oct 04, 2018 at 03:47 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mark_mangahas`
+-- Database: `mark_mangahas_test`
 --
-CREATE DATABASE IF NOT EXISTS `mark_mangahas` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `mark_mangahas`;
+CREATE DATABASE IF NOT EXISTS `mark_mangahas_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `mark_mangahas_test`;
 
 -- --------------------------------------------------------
 
@@ -30,18 +30,9 @@ USE `mark_mangahas`;
 
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `name` varchar(255) NOT NULL,
   `employeeId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `clients`
---
-
-INSERT INTO `clients` (`id`, `name`, `employeeId`) VALUES
-(1, 'wqwe', 2),
-(2, 'John', 1),
-(3, 'qweads', 1);
 
 -- --------------------------------------------------------
 
@@ -54,13 +45,6 @@ CREATE TABLE `employees` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`id`, `name`) VALUES
-(1, 'Mochi');
-
 -- --------------------------------------------------------
 
 --
@@ -69,16 +53,8 @@ INSERT INTO `employees` (`id`, `name`) VALUES
 
 CREATE TABLE `specialties` (
   `id` int(11) NOT NULL,
-  `specialty_name` varchar(255) CHARACTER SET utf8mb4 NOT NULL
+  `specialty_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `specialties`
---
-
-INSERT INTO `specialties` (`id`, `specialty_name`) VALUES
-(3, 'Fade'),
-(5, 'Kalbo');
 
 -- --------------------------------------------------------
 
@@ -89,7 +65,7 @@ INSERT INTO `specialties` (`id`, `specialty_name`) VALUES
 CREATE TABLE `specialties_employees` (
   `id` int(11) NOT NULL,
   `specialty_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL
+  `specialties_employees` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -128,19 +104,19 @@ ALTER TABLE `specialties_employees`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `specialties`
 --
 ALTER TABLE `specialties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `specialties_employees`

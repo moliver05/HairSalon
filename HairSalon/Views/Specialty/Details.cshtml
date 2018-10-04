@@ -5,7 +5,7 @@
 
 <div class="container">
   <div class="w3 bar w3-gray"><b>Specialties</b></div>
-    <h2>Specialty: @Model["selectedSpecialty"].GetSpecialtyName()</h2>
+    <h2>Specialty: @Model["specialty"].GetSpecialtyName()</h2>
     <hr>
     <br>
 
@@ -31,6 +31,6 @@
           <option value='@employee.GetId()'>@employee.GetName()</option>
         }
       </select>
-      <div class="btn btn-success" type='submit'>Add:</button></div>
+      <div class="btn btn-success" type='submit'><a href="/employees/@Model["employee"].GetId()/specialties/{specialtyId}">Add:</a></div>
     </form>
 </div>

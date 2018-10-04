@@ -10,6 +10,8 @@ namespace HairSalon.Models
   {
     private int _id;
     private string _name;
+    private string _employeeName;
+
     public Specialty(string name, int Id = 0)
     {
       _id = Id;
@@ -21,6 +23,10 @@ namespace HairSalon.Models
       return _name;
     }
 
+    public string GetEmployeeName()
+    {
+      return _employeeName;
+    }
     public int GetSpecialtyId()
     {
       return _id;
@@ -45,7 +51,6 @@ namespace HairSalon.Models
     {
       return this.GetSpecialtyName().GetHashCode();
     }
-
 
     public static List<Specialty> GetAll()
     {
@@ -169,57 +174,40 @@ namespace HairSalon.Models
         conn.Dispose();
       }
     }
-    public List<Employee> GetEmployee()
-    {
-      MySqlConnection conn = DB.Connection();
-      conn.Open();
-      var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT employee_id FROM employees_specialties WHERE specialty_id = @specialtyId;";
 
-      MySqlParameter specialtyIdParameter = new MySqlParameter();
-      specialtyIdParameter.ParameterName = "@specialtyId";
-      specialtyIdParameter.Value = _id;
-      cmd.Parameters.Add(specialtyIdParameter);
-
-      var rdr = cmd.ExecuteReader() as MySqlDataReader;
-
-      List<int> employeeIds = new List<int> {};
-      while(rdr.Read())
+    public List<Employee> GetEmployees()
       {
-        int employeeId = rdr.GetInt32(0);
-        employeeIds.Add(employeeId);
-      }
-      rdr.Dispose();
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"SELECT employees.* FROM specialties
+        JOIN specialties_employees ON (specialties.id = specialties_employees.specialty_id)
+        JOIN employees ON (specialties_employees.id = employees.id)
+        WHERE specialties.id = @SpecialtyId;";
 
-      List<Employee> employee = new List<Employee> {};
-      foreach (int employeeId in employeeIds)
-      {
-        var employeeQuery = conn.CreateCommand() as MySqlCommand;
-        employeeQuery.CommandText = @"SELECT * FROM employees WHERE id = @EmployeeId;";
+        MySqlParameter specialtyIdParameter = new MySqlParameter();
+        specialtyIdParameter.ParameterName = "@SpecialtyId";
+        specialtyIdParameter.Value = specialty_id;
+        cmd.Parameters.Add(specialtyIdParameter);
 
-        MySqlParameter employeeIdParameter = new MySqlParameter();
-        employeeIdParameter.ParameterName = "@EmployeeId";
-        employeeIdParameter.Value = employeeId;
-        employeeQuery.Parameters.Add(employeeIdParameter);
+        MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+        List<Employee> employees = new List<Employee>{};
 
-        var employeeQueryRdr = employeeQuery.ExecuteReader() as MySqlDataReader;
-        while(employeeQueryRdr.Read())
+        while(rdr.Read())
         {
-          int thisEmployeeId = employeeQueryRdr.GetInt32(0);
-          string employeeName = employeeQueryRdr.GetString(1);
+          int employeeId = rdr.GetInt32(0);
+          string employeeName = rdr.GetString(1);
 
-          Employee foundEmployee = new Employee(employeeName, thisEmployeeId);
-          employee.Add(foundEmployee);
+          Employee newEmployee = new Employee(employeeName, employeeId);
+          employees.Add(newEmployee);
         }
-        employeeQueryRdr.Dispose();
+        conn.Close();
+        if (conn != null)
+        {
+          conn.Dispose();
+        }
+        return employees;
       }
-      conn.Close();
-      if (conn != null)
-      {
-        conn.Dispose();
-      }
-      return employee;
-    }
 
     public void Delete()
     {
@@ -269,6 +257,6 @@ namespace HairSalon.Models
         conn.Dispose();
       }
     }
-    
+
   }
 }
