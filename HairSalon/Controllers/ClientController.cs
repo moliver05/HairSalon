@@ -33,11 +33,34 @@ namespace HairSalon.Controllers
       return View(model);
     }
 
+    [HttpGet("/clients/{clientId}/update")]
+    public ActionResult UpdateForm(int clientId)
+    {
+      Specialty thisClient = Specialty.Find(clientId);
+      return View(thisClient);
+    }
+
+    [HttpPost("/clients/{clientId}/update")]
+    public ActionResult Update(int clientId)
+    {
+      Specialty thisClient = Specialty.Find(clientId);
+      thisClient.Edit(Request.Form["new-client"]);
+      return RedirectToAction("Index");
+    }
+
     [HttpGet("/employees/employees/{employeeId}/delete")]
     public ActionResult DeleteAll()
     {
       Client.DeleteAll();
       return View();
+    }
+
+    [HttpGet("/clients/{clientId}/delete")]
+    public ActionResult Delete(int clientId)
+    {
+      Client thisClient = Client.Find(clientId);
+      thisClient.Delete();
+      return RedirectToAction("Index");
     }
 
  }
