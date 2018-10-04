@@ -46,7 +46,7 @@ namespace HairSalon.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Specialty selectedSpecialty = Specialty.Find(id);
-      List<Employee> specialtyEmployee = selectedSpecialty.GetEmployees();
+      List<Employee> specialtyEmployee = selectedSpecialty.GetEmployee();
       List<Employee> allEmployee = Employee.GetAll();
       model.Add("selectedSpecialty", selectedSpecialty);
       model.Add("specialtyEmployee", specialtyEmployee);
@@ -64,24 +64,24 @@ namespace HairSalon.Controllers
     }
 
     [HttpGet("/specialties/{specialtyId}/delete")]
-    public ActionResult DeleteOne(int specialtyId)
+    public ActionResult Delete(int specialtyId)
     {
       Specialty thisSpecialty = Specialty.Find(specialtyId);
       thisSpecialty.Delete();
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/specialties/{speicaltyId}/update")]
-    public ActionResult UpdateForm(int speicaltyId)
+    [HttpGet("/specialties/{specialtyId}/update")]
+    public ActionResult UpdateForm(int specialtyId)
     {
-      Specialty thisSpecialty = Specialty.Find(speicaltyId);
+      Specialty thisSpecialty = Specialty.Find(specialtyId);
       return View(thisSpecialty);
     }
 
-    [HttpPost("/specialties/{speicaltyId}/update")]
-    public ActionResult Update(int speicaltyId)
+    [HttpPost("/specialties/{specialtyId}/update")]
+    public ActionResult Update(int specialtyId)
     {
-      Specialty thisSpecialty = Specialty.Find(speicaltyId);
+      Specialty thisSpecialty = Specialty.Find(specialtyId);
       thisSpecialty.Edit(Request.Form["new-specialty-name"]);
       return RedirectToAction("Index");
     }

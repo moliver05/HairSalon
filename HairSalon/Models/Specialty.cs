@@ -77,7 +77,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO specialties (name) VALUES (@SpecialtyName);";
+      cmd.CommandText = @"INSERT INTO specialties (specialty_name) VALUES (@SpecialtyName);";
 
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@SpecialtyName";
@@ -169,7 +169,7 @@ namespace HairSalon.Models
         conn.Dispose();
       }
     }
-    public List<Employee> GetEmployees()
+    public List<Employee> GetEmployee()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
@@ -183,7 +183,7 @@ namespace HairSalon.Models
 
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
 
-      List<int> employeeId = new List<int> {};
+      List<int> employeeIds = new List<int> {};
       while(rdr.Read())
       {
         int employeeId = rdr.GetInt32(0);

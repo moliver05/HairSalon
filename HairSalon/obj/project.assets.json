@@ -9960,11 +9960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/HairSalon/HairSalon.csproj",
+      "projectUniqueName": "/Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/HairSalon.csproj",
       "projectName": "HairSalon",
-      "projectPath": "/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/HairSalon/HairSalon.csproj",
+      "projectPath": "/Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/HairSalon.csproj",
       "packagesPath": "/Users/YnahPinedaMercado/.nuget/packages/",
-      "outputPath": "/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/HairSalon/obj/",
+      "outputPath": "/Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/YnahPinedaMercado/.nuget/NuGet/NuGet.Config"
