@@ -187,7 +187,7 @@ namespace HairSalon.Models
 
         MySqlParameter specialtyIdParameter = new MySqlParameter();
         specialtyIdParameter.ParameterName = "@SpecialtyId";
-        specialtyIdParameter.Value = specialty_id;
+        specialtyIdParameter.Value = _id;
         cmd.Parameters.Add(specialtyIdParameter);
 
         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;

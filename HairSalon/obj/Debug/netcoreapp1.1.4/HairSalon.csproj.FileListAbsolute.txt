@@ -16,3 +16,12 @@
 /Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/obj/Debug/netcoreapp1.1.4/HairSalon.pdb
 /Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.dll
 /Users/YnahPinedaMercado/Desktop/HairSalon/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.pdb
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.deps.json
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.runtimeconfig.json
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.runtimeconfig.dev.json
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/obj/Debug/netcoreapp1.1.4/HairSalon.csproj.CoreCompileInputs.cache
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/obj/Debug/netcoreapp1.1.4/HairSalon.AssemblyInfo.cs
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/obj/Debug/netcoreapp1.1.4/HairSalon.dll
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/obj/Debug/netcoreapp1.1.4/HairSalon.pdb
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.dll
+/Users/YnahPinedaMercado/Desktop/HairSalon.Solution/HairSalon/bin/Debug/netcoreapp1.1.4/HairSalon.pdb

@@ -41,12 +41,12 @@ namespace HairSalon.Controllers
       return View(specialty);
     }
 
-    [HttpGet("/specialties/{id}")]
-    public ActionResult Details(int id)
+    [HttpGet("/specialties/{specialtyid}")]
+    public ActionResult Details(int specialtyid)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Specialty newSpecialty = Specialty.Find(id);
-      List<Employee> specialtyEmployee = newSpecialty.GetEmployeeName();
+      Specialty selectedSpecialty = Specialty.Find(specialtyid);
+      List<Employee> specialtyEmployee = selectedSpecialty.GetEmployees();
       List<Employee> allEmployee = Employee.GetAll();
       model.Add("selectedSpecialty", selectedSpecialty);
       model.Add("specialtyEmployee", specialtyEmployee);

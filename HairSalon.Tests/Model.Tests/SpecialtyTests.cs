@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using HairSalon.Models;
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 
 namespace HairSalon.Test
 {
@@ -12,6 +13,7 @@ namespace HairSalon.Test
         public void Dispose()
         {
             Specialty.DeleteAll();
+            Employee.DeleteAll();
         }
         public SpecialtyTests()
         {
@@ -29,48 +31,19 @@ namespace HairSalon.Test
       Assert.AreEqual(0, result);
       }
 
-
       [TestMethod]
-      public void Equals_Overrides_IsTrue()
-      {
-        // Arrange, Act
-        Specialty oneSpecialty = new Specialty("Fade");
-        Specialty twoSpecialty = new Specialty("Curls");
-
-        // Assert
-        Assert.AreEqual(oneSpecialty.GetSpecialtyName(), twoSpecialty.GetSpecialtyName());
-      }
-      [TestMethod]
-      public void Save_Returns_True()
+      public void Save_ToDatabase_SpecialtyList()
       {
         //Arrange
-        Specialty testSpecialty = new Specialty("Mochi");
+        Specialty testSpecialty = new Specialty("Name", 1);
+        testSpecialty.Save();
 
         //Act
-        testSpecialty.Save();
         List<Specialty> result = Specialty.GetAll();
         List<Specialty> testList = new List<Specialty>{testSpecialty};
 
         //Assert
         CollectionAssert.AreEqual(testList, result);
       }
-
-        [TestMethod]
-        public void Save_AssignsIdToObject_Id()
-        {
-          //Arrange
-          Specialty testSpecialty = new Specialty("Name");
-
-          //Act
-          testSpecialty.Save();
-          Specialty savedSpecialty = Specialty.GetAll()[0];
-
-          int result = savedSpecialty.GetSpecialtyId();
-          int testId = testSpecialty.GetSpecialtyId();
-
-          //Assert
-          Assert.AreEqual(testId, result);
-        }
-
   }
 }
