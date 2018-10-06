@@ -7,7 +7,6 @@ namespace HairSalon.Controllers
 {
   public class SpecialtyController : Controller
   {
-
     [HttpGet("/specialties")]
     public ActionResult Index()
     {
@@ -41,11 +40,11 @@ namespace HairSalon.Controllers
       return View(specialty);
     }
 
-    [HttpGet("/specialties/{specialtyid}")]
-    public ActionResult Details(int specialtyid)
+    [HttpGet("/specialties/{specialtyId}")]
+    public ActionResult Details(int specialtyId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Specialty selectedSpecialty = Specialty.Find(specialtyid);
+      Specialty selectedSpecialty = Specialty.Find(specialtyId);
       List<Employee> specialtyEmployee = selectedSpecialty.GetEmployees();
       List<Employee> allEmployee = Employee.GetAll();
       model.Add("selectedSpecialty", selectedSpecialty);
@@ -93,5 +92,7 @@ namespace HairSalon.Controllers
       Specialty.DeleteAll();
       return View();
     }
+
+
   }
 }

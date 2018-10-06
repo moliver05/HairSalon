@@ -16,9 +16,8 @@ $(document).ready(function() {
       }
       slides[slideIndex-1].style.display = "block";
       dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
 };
-
 
 function openLink(evt, linkName) {
   var i, x, tablinks;
@@ -28,9 +27,10 @@ function openLink(evt, linkName) {
   }
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace("w3", "");
+      tablinks[i].className = tablinks[i].className.replace(" w3", "");
   }
   document.getElementById(linkName).style.display = "block";
-  evt.currentTarget.className += "w3";
+  evt.currentTarget.className += " w3";
 };
+
 });
