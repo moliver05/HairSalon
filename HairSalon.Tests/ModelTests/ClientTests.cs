@@ -18,7 +18,7 @@ namespace HairSalon.Test
             DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=mark_mangahas_tests;";
         }
 
-        
+
 
       [TestMethod]
       public void GetAll_DbStartsEmpty_0()
@@ -38,7 +38,7 @@ namespace HairSalon.Test
       {
         // Arrange, Act
         Client firstClient = new Client("Name", 1);
-        Client secondClient = new Client("Name", 1);
+        Client secondClient = new Client("Name", 2);
 
         // Assert
         Assert.AreEqual(firstClient, secondClient);

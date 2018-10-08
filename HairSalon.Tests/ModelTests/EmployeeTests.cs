@@ -36,11 +36,12 @@ namespace HairSalon.Test
       {
         // Arrange, Act
         Employee firstEmployee = new Employee("Name");
-        Employee secondEmployee = new Employee("NameTwo");
+        Employee secondEmployee = new Employee("Name");
 
         // Assert
         Assert.AreEqual(firstEmployee.GetName(), secondEmployee.GetName());
       }
+
       [TestMethod]
       public void Save_SavesToDatabase_EmployeeList()
       {
